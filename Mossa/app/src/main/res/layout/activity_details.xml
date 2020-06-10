@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+
+    <ImageView
+        android:id="@+id/image_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/testimage"/>
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_slider"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:text="Price:"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:layout_below="@id/image_slider"
+        android:layout_toRightOf="@id/price"
+        android:text="$140"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:layout_below="@id/price"
+
+        android:text="Vans"
+        android:textSize="26sp"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>
