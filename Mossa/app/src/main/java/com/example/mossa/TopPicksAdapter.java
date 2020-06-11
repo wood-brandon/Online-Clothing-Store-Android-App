@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
+
 
 public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHolder> {
 
@@ -25,28 +28,32 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
     }
 
     private List<Clothing> mClothes;
+    private Context mContext;
 
-    public TopPicksAdapter(List<Clothing> clothes){
+    public TopPicksAdapter(Context context, List<Clothing> clothes){
         mClothes = clothes;
+        mContext = context;
     }
 
     @Override
     public TopPicksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         View topPickView = inflater.inflate(R.layout.top_picks_layout, parent, false);
-
         ViewHolder viewHolder = new ViewHolder(topPickView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(TopPicksAdapter.ViewHolder viewHolder, int position){
+    public void onBindViewHolder(TopPicksAdapter.ViewHolder viewHolder, int position) {
         Clothing clothing = mClothes.get(position);
 
         ImageView imageView = viewHolder.topPicksImage;
-        imageView.setImageURI(clothing.getImg());
+        GlideApp.with(mContext)
+                .load(clothing.getImg())
+                .placeholder(R.drawable.testimage)
+                .into(imageView);
+
     }
 
     @Override
