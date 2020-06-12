@@ -18,12 +18,14 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView topPicksImage;
+        public ImageView topPicksImage1;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            topPicksImage = (ImageView) itemView.findViewById(R.id.top_picks_image);
+            topPicksImage1 = (ImageView) itemView.findViewById(R.id.top_picks_image1);
+
         }
     }
 
@@ -46,13 +48,18 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(TopPicksAdapter.ViewHolder viewHolder, int position) {
-        Clothing clothing = mClothes.get(position);
+        Clothing clothing1 = mClothes.get(position);
 
-        ImageView imageView = viewHolder.topPicksImage;
+
+        ImageView imageView1 = viewHolder.topPicksImage1;
+
+
         GlideApp.with(mContext)
-                .load(clothing.getImg())
+                .load(clothing1.getImg())
+                .centerCrop()
                 .placeholder(R.drawable.testimage)
-                .into(imageView);
+                .into(imageView1);
+
 
     }
 
