@@ -52,7 +52,7 @@ public class ListAdapter extends ArrayAdapter<Clothing> {
         //Populate the data into the template view using the data object
         viewHolder.tvName.setText(clothing.getName());
         String priceString = Integer.toString(clothing.getPrice());
-        viewHolder.tvPrice.setText(priceString);
+        viewHolder.tvPrice.setText("$" + priceString);
         //int resID = clothing.getImg();
         GlideApp.with(mContext)
                 .load(clothing.getImg())

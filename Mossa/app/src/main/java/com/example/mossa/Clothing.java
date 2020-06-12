@@ -16,12 +16,20 @@ public class Clothing implements Serializable {
     private String Category;
     private int Price;
     private String ImgAddr;
+    private String ImgAddr2;
+    private String ImgAddr3;
+    private String desc;
+    private int ViewCount;
 
-    public Clothing(String Name,  String Category, int Price, String ImgAddr){
+    public Clothing(String Name,  String Category, int Price, String ImgAddr, String ImgAddr2, String ImgAddr3, String desc){
         this.Name = Name;
         this.Category = Category;
         this.Price = Price;
         this.ImgAddr = ImgAddr;
+        this.ImgAddr2 = ImgAddr2;
+        this.ImgAddr3 = ImgAddr3;
+        this.desc = desc;
+        this.ViewCount = 0;
     }
 
     public String getName(){
@@ -36,6 +44,8 @@ public class Clothing implements Serializable {
     public int getPrice(){
         return Price;
     }
+    public int getViewCount() { return ViewCount; }
+    public void addView() { ViewCount += 1 ; }
 
 
     // class creates clothing catalogue where we get all our data
@@ -56,18 +66,21 @@ public class Clothing implements Serializable {
             String category;
             int price;
             String ImgAddr;
+            String ImgAddr2;
+            String ImgAddr3;
+            String desc;
 
             //loop through entire .txt file
             while (name != null) {
                 category = reader.readLine();
                 price = Integer.parseInt(reader.readLine());
                 ImgAddr = reader.readLine();
+                ImgAddr2 = reader.readLine();
+                ImgAddr3 = reader.readLine();
+                desc = reader.readLine();
                 //add clothing object to catalogue array
-                clothingCatalogue.add(new Clothing(name, category, price, ImgAddr));
-
+                clothingCatalogue.add(new Clothing(name, category, price, ImgAddr, ImgAddr2, ImgAddr3, desc));
                 name = reader.readLine();
-
-
             }
             reader.close();
             return clothingCatalogue;

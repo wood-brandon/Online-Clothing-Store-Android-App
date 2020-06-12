@@ -47,11 +47,15 @@
         android:text="Vans"
         android:textSize="26sp"/>
 
+    <TextView
+        android:id="@+id/view_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:layout_below="@id/item_name"
 
-
-
-
-
-
+        android:text="0000"
+        android:textSize="14sp"/>
 
 </RelativeLayout>
