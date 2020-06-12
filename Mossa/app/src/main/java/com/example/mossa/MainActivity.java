@@ -57,13 +57,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
+                //reset the searchView
                 searchView.clearFocus();
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
 
+                Intent searchIntent = new Intent(MainActivity.this, ListActivity.class);
+
+                searchIntent.putExtra("SearchTerm", query);
+                startActivity(searchIntent);
 
 
-                MainActivity.this.setTitle(query);
                 return true;
 
             }
