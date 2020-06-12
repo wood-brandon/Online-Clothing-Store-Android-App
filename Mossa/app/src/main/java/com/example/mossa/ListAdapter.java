@@ -13,13 +13,18 @@ import java.util.ArrayList;
 
 public class ListAdapter extends ArrayAdapter<Clothing> {
 
+    public Context mContext;
+
     private static class ViewHolder{
         public ImageView ivClothingImg;
         public TextView tvName;
         public TextView tvPrice;
     }
+
+
     public ListAdapter(Context context, ArrayList<Clothing> aClothes){
         super(context, 0,  aClothes);
+        mContext = context;
     }
 
     //Translates a particular item given a position into a relevant row within AdapterView
@@ -49,7 +54,11 @@ public class ListAdapter extends ArrayAdapter<Clothing> {
         String priceString = Integer.toString(clothing.getPrice());
         viewHolder.tvPrice.setText(priceString);
         //int resID = clothing.getImg();
-        viewHolder.ivClothingImg.setImageResource(R.drawable.testimage);
+        GlideApp.with(mContext)
+                .load(clothing.getImg())
+                .centerCrop()
+                .placeholder(R.drawable.testimage)
+                .into(viewHolder.ivClothingImg);
 
         return convertView;
     }

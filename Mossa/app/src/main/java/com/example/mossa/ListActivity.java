@@ -1,9 +1,12 @@
 package com.example.mossa;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -28,7 +31,13 @@ public class ListActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_list);
 
-
+        //setting parameters for custom action bar
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.action_bar_nosearch);
+        //set the colour of the action bar
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a98274"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         // create listview using data provider
         lvClothes = (ListView) findViewById(R.id.main_list);
