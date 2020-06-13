@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class ListActivity extends AppCompatActivity {
 
     // local variables
     ListView lvClothes;
+    TextView tvNoResults;
     ListAdapter ListAdapter;
     ArrayList<Clothing> sortedCatalogue;
     ArrayList<Clothing> aClothes;
@@ -41,6 +43,9 @@ public class ListActivity extends AppCompatActivity {
                 // create listview using data provider
                 lvClothes = (ListView) findViewById(R.id.main_list);
                 lvClothes.setEmptyView(findViewById(R.id.empty_list_item));
+                tvNoResults = (TextView) findViewById(R.id.empty_list_item);
+                String NotFound = "No results found for \"" + Query + "\".";
+                tvNoResults.setText(NotFound);
                 aClothes = MainActivity.getCatalogue();
                 sortedCatalogue = new ArrayList<Clothing>();
                 //create categoryCatalogue

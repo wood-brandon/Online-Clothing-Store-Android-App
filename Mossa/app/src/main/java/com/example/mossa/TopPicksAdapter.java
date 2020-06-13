@@ -50,7 +50,7 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
         GlideApp.with(mContext)
                 .load(clothing1.getImg())
                 .centerCrop()
-                .placeholder(R.drawable.testimage)
+                .placeholder(R.drawable.loading)
                 .into(imageView1);
     }
 

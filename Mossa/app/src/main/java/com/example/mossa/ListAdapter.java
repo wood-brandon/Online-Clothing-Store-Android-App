@@ -57,7 +57,7 @@ public class ListAdapter extends ArrayAdapter<Clothing> {
         GlideApp.with(mContext)
                 .load(clothing.getImg())
                 .centerCrop()
-                .placeholder(R.drawable.testimage)
+                .placeholder(R.drawable.loading)
                 .into(viewHolder.ivClothingImg);
 
         return convertView;

@@ -9,7 +9,7 @@
     </style>
 
     <style name="ClickableElement">
-        <item name="android:background">@color/colorPrimaryLight</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="HeadingText">
