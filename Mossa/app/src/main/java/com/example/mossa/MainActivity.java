@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 searchView.setIconified(true);
 
                 Intent searchIntent = new Intent(MainActivity.this, ListActivity.class);
-
                 searchIntent.putExtra("SearchTerm", query);
                 startActivity(searchIntent);
 
