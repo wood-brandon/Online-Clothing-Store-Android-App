@@ -75,4 +75,11 @@ public class ListActivity extends AppCompatActivity {
     public void viewDetail(View view){
         Intent intentdetail = new Intent(ListActivity.this, DetailsActivity.class);
     }
+
+    public void homeButton(View view){
+
+        Intent intentMain = new Intent(ListActivity.this, MainActivity.class);
+
+        startActivity(intentMain);
+    }
 }

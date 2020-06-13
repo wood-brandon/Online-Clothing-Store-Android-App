@@ -37,4 +37,11 @@ public class DetailsActivity extends AppCompatActivity {
         tvItemName = (TextView) findViewById(R.id.item_name);
 
     }
+
+    public void homeButton(View view){
+
+        Intent intentMain = new Intent(DetailsActivity.this, MainActivity.class);
+
+        startActivity(intentMain);
+    }
 }

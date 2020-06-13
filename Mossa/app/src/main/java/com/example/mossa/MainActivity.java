@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Clothing> clothingCatalogue;
+    private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
+        rootView = findViewById(R.id.root_view);
         final SearchView searchView = (SearchView) findViewById(R.id.action_search);
+        searchView.setQuery("", false);
+        rootView.requestFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -97,4 +101,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 }
