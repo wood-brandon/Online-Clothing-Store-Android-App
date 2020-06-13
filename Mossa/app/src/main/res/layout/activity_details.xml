@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context = ".DetailsActivity">>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#ffffff"
+
     tools:context=".DetailsActivity">
 
     <!-- SliderView adapted from https://github.com/smarteist/Android-Image-Slider -->
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/image_slider"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         app:sliderAnimationDuration="600"
         app:sliderAutoCycleDirection="back_and_forth"
         app:sliderAutoCycleEnabled="true"
@@ -27,10 +35,8 @@
         app:sliderScrollTimeInSec="1"
         app:sliderStartAutoCycle="true" />
 
-
-
     <TextView
-        style="@style/DetailBodyText"
+        style="@style/DetailPriceText"
         android:id="@+id/price_val"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,9 +54,9 @@
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:paddingTop="10dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginRight="80dp"
         android:layout_below="@id/image_slider"
-        android:text="Item name"
+        android:text="Item Name"
         android:textSize="26sp"/>
 
     <TextView
@@ -85,4 +91,6 @@
         android:layout_below="@id/description_text"
         android:text="MOSSA endeavours to provide the finest quality indie clothing, with the freshest style and premium materials. Orders are shipped out within 1-2 business days, and in the event you aren't happy with your order we offer a no-questions asked return service."/>
 
+
 </RelativeLayout>
+    </ScrollView>
