@@ -21,7 +21,7 @@
     <style name="ListHeaderText">
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="DetailHeaderText">
@@ -34,6 +34,12 @@
         <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="DetailPriceText">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="BodyText">
