@@ -52,7 +52,8 @@ public class Clothing implements Serializable {
 
 
     // class creates clothing catalogue where we get all our data
-    public static ArrayList<Clothing> createClothingCatalogue(Context context){
+    public static ArrayList<Clothing> createClothingCatalogue(Context context) {
+
         //create array of clothing objects
         ArrayList<Clothing> clothingCatalogue = new ArrayList<>();
         //define reader
@@ -87,10 +88,27 @@ public class Clothing implements Serializable {
             }
             reader.close();
             return clothingCatalogue;
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
         return null;
+    }
+
+    public static ArrayList<Clothing> createMostViewed(ArrayList<Clothing> clothing){
+
+        ArrayList<Clothing> mostViewed = new ArrayList<>(clothing);
+        while(mostViewed.size() > 3) {
+           Clothing min = mostViewed.get(0);
+            for (int i = 0; i < mostViewed.size(); i++) {
+                if (min.getViewCount() > mostViewed.get(i).getViewCount()){
+                    min = mostViewed.get(i);
+                }
+            }
+            mostViewed.remove(min);
+        }
+
+        return mostViewed;
     }
 
 }

@@ -29,7 +29,8 @@
         android:id="@+id/top_picks"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
     </androidx.recyclerview.widget.RecyclerView>
 

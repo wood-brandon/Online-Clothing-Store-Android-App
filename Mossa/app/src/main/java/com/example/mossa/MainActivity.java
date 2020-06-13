@@ -2,6 +2,7 @@ package com.example.mossa;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
@@ -20,10 +21,12 @@ import android.widget.SearchView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Clothing> clothingCatalogue;
+    public static ArrayList<Clothing> mostViewed;
     RecyclerView topPicks;
     private View rootView;
 
@@ -45,14 +48,36 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         //defining parameters for recycler view
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 3);
         clothingCatalogue = Clothing.createClothingCatalogue(this);
-        TopPicksAdapter adapter = new TopPicksAdapter(this, clothingCatalogue);
+        TopPicksAdapter adapter = new TopPicksAdapter(this, Clothing.createMostViewed(clothingCatalogue));
         //Setting up the recycler view
-        RecyclerView topPicks = (RecyclerView) findViewById(R.id.top_picks);
+        topPicks = (RecyclerView) findViewById(R.id.top_picks);
         topPicks.setHasFixedSize(true);
         topPicks.setAdapter(adapter);
         topPicks.setLayoutManager(layoutManager);
+        adapter.setOnItemClickListener(new TopPicksAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Intent intent = new Intent(MainActivity.this,DetailsActivity.class);
+                Clothing clickItem = TopPicksAdapter.getItem(position);
+                clickItem.addView();
+                intent.putExtra("Item",clickItem);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        TopPicksAdapter adapter = new TopPicksAdapter(this, Clothing.createMostViewed(clothingCatalogue));
+        //Setting up the recycler view
+        topPicks = (RecyclerView) findViewById(R.id.top_picks);
+        topPicks.setAdapter(adapter);
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -102,4 +127,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 }
