@@ -8,4 +8,38 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ClickableElement">
+        <item name="android:background">@color/colorPrimaryLight</item>
+    </style>
+
+    <style name="HeadingText">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="ListHeaderText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="DetailHeaderText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="DetailBodyText">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

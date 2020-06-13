@@ -11,6 +11,7 @@
         android:layout_margin="16dp"/>
 
     <TextView
+        style="@style/ListHeaderText"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,10 +21,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:layout_toRightOf="@id/ivClothingImg"
-        android:text="Name"
-        android:textSize="22sp" />
+        android:text="Name"/>
 
     <TextView
+        style="@style/BodyText"
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +35,5 @@
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="10dp"
         android:layout_toRightOf="@id/ivClothingImg"
-        android:text="$Price"
-        android:textSize="12sp"/>
+        android:text="$Price"/>
 </RelativeLayout>

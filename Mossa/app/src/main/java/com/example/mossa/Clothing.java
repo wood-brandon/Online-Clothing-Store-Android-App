@@ -35,9 +35,12 @@ public class Clothing implements Serializable {
     public String getName(){
         return Name;
     }
+    public String getDesc(){ return desc; }
     public String getImg(){
         return ImgAddr;
     }
+    public String getImg2(){ return ImgAddr2; }
+    public String getImg3(){ return ImgAddr3; }
     public String getCategory(){
         return Category;
     }
@@ -51,7 +54,7 @@ public class Clothing implements Serializable {
     // class creates clothing catalogue where we get all our data
     public static ArrayList<Clothing> createClothingCatalogue(Context context){
         //create array of clothing objects
-        ArrayList<Clothing> clothingCatalogue = new ArrayList<Clothing>();
+        ArrayList<Clothing> clothingCatalogue = new ArrayList<>();
         //define reader
         BufferedReader reader;
 

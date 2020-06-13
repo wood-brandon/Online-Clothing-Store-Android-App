@@ -57,7 +57,6 @@ public class ListActivity extends AppCompatActivity {
                 }
 
         ListAdapter = new ListAdapter(this, sortedCatalogue);
-
         lvClothes.setAdapter(ListAdapter);
         LinearLayoutManager lm = new LinearLayoutManager(this);
         setupItemSelectedListener();
