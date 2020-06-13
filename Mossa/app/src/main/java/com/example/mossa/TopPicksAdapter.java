@@ -77,7 +77,7 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
 
         GlideApp.with(mContext)
                 .load(clothing1.getImg())
-                .circleCrop()
+                .centerCrop()
                 .placeholder(R.drawable.loading)
                 .into(imageView1);
         textView.setText(clothing1.getName());
