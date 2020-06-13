@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
@@ -33,6 +35,7 @@ public class DetailsActivity extends AppCompatActivity {
         //setting parameters for custom action bar
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setCustomView(R.layout.action_bar_nosearch);
         //set the colour of the action bar
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a98274"));
@@ -70,5 +73,11 @@ public class DetailsActivity extends AppCompatActivity {
 
 
         LinearLayoutManager lm = new LinearLayoutManager(this);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        finish();
+        return true;
     }
 }
