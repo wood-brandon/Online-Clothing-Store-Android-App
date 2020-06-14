@@ -65,7 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
         String viewString = Integer.toString((clothing.getViewCount()));
         tvViewCount.setText("Views: " + viewString);
 
-        // SliderView adapted from https://github.com/smarteist/Android-Image-Slider
+        // SliderView libraries from https://github.com/smarteist/Android-Image-Slider
         sliderAdapter = new SliderAdapter(this, clothing);
         svClothingPic.setSliderAdapter(sliderAdapter);
         // setup custom parameters around sliderView

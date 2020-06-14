@@ -13,6 +13,9 @@ import com.smarteist.autoimageslider.SliderViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+// SliderView libraries from https://github.com/smarteist/Android-Image-Slider
+// Adapter is our own work
+
 public class SliderAdapter extends
         SliderViewAdapter<SliderAdapter.myViewHolder> {
 
