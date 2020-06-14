@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         topPicks.setHasFixedSize(true);
         topPicks.setAdapter(adapter);
         topPicks.setLayoutManager(layoutManager);
+        //click listener is set
         adapter.setOnItemClickListener(new TopPicksAdapter.ClickListener() {
             @Override
             public void onItemClick(int position, View v) {
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Whenever the user returns to the Main activity the recycler view is updated
     @Override
     protected void onResume(){
         super.onResume();
@@ -80,11 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //when the action bar is created the root view requests focus inorder to stop the search view from
+    //automatically gaining focus
     public boolean onCreateOptionsMenu(Menu menu){
         rootView = findViewById(R.id.root_view);
         final SearchView searchView = (SearchView) findViewById(R.id.action_search);
         searchView.setQuery("", false);
         rootView.requestFocus();
+        //onQueryTextListener set for the searchView for when the user inputs data
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 searchView.setQuery("", false);
                 searchView.setIconified(true);
 
+                //Intent is created sending the query to the ListActivity and starting the ListActivity
                 Intent searchIntent = new Intent(MainActivity.this, ListActivity.class);
                 searchIntent.putExtra("SearchTerm", query);
                 startActivity(searchIntent);
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //Function for when Categories are clicked
     public void viewCategory(View view){
         Intent intentlist = new Intent(MainActivity.this, ListActivity.class);
         switch(view.getId()){

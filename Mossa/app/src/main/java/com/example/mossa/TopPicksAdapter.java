@@ -19,11 +19,15 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//RecyclerAdapter adapted from https://guides.codepath.com/android/using-the-recyclerview
 public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHolder> {
 
+    //Local variable declaration
     private static ClickListener clickListener;
+    private static List<Clothing> mClothes;
+    private Context mContext;
 
+    //Click listener adapted from https://antonioleiva.com/recyclerview-listener/
     public interface ClickListener {
         void onItemClick(int position, View v);
     }
@@ -32,10 +36,12 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
         TopPicksAdapter.clickListener = clickListener;
     }
 
+    //View holder class is created
     public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView topPicksImage1;
         public TextView topPicksText;
 
+        //ViewHolder constructer creates the views based on whats in top_picks_layout.xml
         public ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -51,15 +57,14 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
 
     }
 
-    private static List<Clothing> mClothes;
-    private Context mContext;
-
+    //Clothing objects to be put into itemView stored in mClothes array
     public TopPicksAdapter(Context context, List<Clothing> clothes){
 
         mClothes = clothes;
         mContext = context;
     }
 
+    //View holder is inflated with the top_picks_layout.xml
     @Override
     public TopPicksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         Context context = parent.getContext();
@@ -69,6 +74,8 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
         return viewHolder;
     }
 
+
+    //data is assigned to views within the view holder
     @Override
     public void onBindViewHolder(TopPicksAdapter.ViewHolder viewHolder, int position) {
         Clothing clothing1 = mClothes.get(position);
