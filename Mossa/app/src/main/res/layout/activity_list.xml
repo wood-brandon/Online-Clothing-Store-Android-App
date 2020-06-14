@@ -8,10 +8,17 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ListActivity">
+    <TextView
+        android:id="@+id/Search_term"
+        android:text="Search results"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="30dp"/>
     <ListView
         android:id="@+id/main_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/empty_list_item"
         android:layout_width="match_parent"

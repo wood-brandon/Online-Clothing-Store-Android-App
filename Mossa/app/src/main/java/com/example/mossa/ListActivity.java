@@ -21,6 +21,7 @@ public class ListActivity extends AppCompatActivity {
     // local variables
     ListView lvClothes;
     TextView tvNoResults;
+    TextView tvSearchTerm;
     ListAdapter ListAdapter;
     ArrayList<Clothing> sortedCatalogue;
     ArrayList<Clothing> aClothes;
@@ -29,7 +30,9 @@ public class ListActivity extends AppCompatActivity {
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 Intent intent = getIntent();
-                String Query = intent.getStringExtra("SearchTerm").toLowerCase();
+                // get search term or category filter
+                String Query = intent.getStringExtra("SearchTerm");
+                String Category = intent.getStringExtra("Category");
 
                 setContentView(R.layout.activity_list);
 
@@ -42,27 +45,48 @@ public class ListActivity extends AppCompatActivity {
                 ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#a98274"));
                 getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
-                // create listview using data provider
+                // find views in activity_list.xml to populate
                 lvClothes = (ListView) findViewById(R.id.main_list);
                 lvClothes.setEmptyView(findViewById(R.id.empty_list_item));
+                tvSearchTerm = (TextView) findViewById(R.id.Search_term);
                 tvNoResults = (TextView) findViewById(R.id.empty_list_item);
-                String NotFound = "No results found for \"" + Query + "\".";
-                tvNoResults.setText(NotFound);
-                aClothes = MainActivity.getCatalogue();
-                sortedCatalogue = new ArrayList<Clothing>();
-                //create categoryCatalogue
 
-                for (int i = 0; i < aClothes.size(); i++){
+                // show search term at top of screen if searched and populate no results found
+                if (Category == null){
 
-                    if (aClothes.get(i).getCategory().toLowerCase().equals(Query)){
-                        sortedCatalogue.add(aClothes.get(i));
-                    }
-                    else if (aClothes.get(i).getName().toLowerCase().contains(Query)){
-                        sortedCatalogue.add(aClothes.get(i));
-                    }
 
+                    String SearchText = "Search results for \"" + Query + "\"";
+                    tvSearchTerm.setText(SearchText);
+                    String NotFound = "No results found for \"" + Query + "\".";
+                    tvNoResults.setText(NotFound);
+                } else {
+                    tvSearchTerm.setVisibility(View.GONE);
                 }
 
+
+                // populate fields using list adapter
+                aClothes = MainActivity.getCatalogue();
+                // first, sort the main array by search term
+                sortedCatalogue = new ArrayList<Clothing>();
+                // check name for search term if that intent was passed
+                if (Category == null) {
+                    for (int i = 0; i < aClothes.size(); i++) {
+                        if (aClothes.get(i).getName().toLowerCase().contains(Query.toLowerCase())) {
+                            sortedCatalogue.add(aClothes.get(i));
+                        }
+                    }
+                } else { // else check category
+                    for (int i = 0; i < aClothes.size(); i++) {
+                        if (aClothes.get(i).getCategory().toLowerCase().equals(Category.toLowerCase())) {
+                            sortedCatalogue.add(aClothes.get(i));
+                        }
+                    }
+                }
+
+                if (sortedCatalogue.size() == 0){
+                    tvSearchTerm.setVisibility(View.GONE);
+                }
+        // load adapter based on sorted list
         ListAdapter = new ListAdapter(this, sortedCatalogue);
         lvClothes.setAdapter(ListAdapter);
         LinearLayoutManager lm = new LinearLayoutManager(this);

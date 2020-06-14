@@ -51,7 +51,7 @@ public class Clothing implements Serializable {
     public void addView() { ViewCount += 1 ; }
 
 
-    // class creates clothing catalogue where we get all our data
+    // class creates clothing catalogue where we get all our data by loading txt file
     public static ArrayList<Clothing> createClothingCatalogue(Context context) {
 
         //create array of clothing objects

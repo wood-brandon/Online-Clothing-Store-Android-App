@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 searchIntent.putExtra("SearchTerm", query);
                 startActivity(searchIntent);
 
-
                 return true;
 
             }
@@ -114,13 +113,13 @@ public class MainActivity extends AppCompatActivity {
     public void viewCategory(View view){
         Intent intentlist = new Intent(MainActivity.this, ListActivity.class);
         switch(view.getId()){
-            case R.id.hats_catagory: intentlist.putExtra("SearchTerm", "Hats"); startActivity(intentlist);
+            case R.id.hats_catagory: intentlist.putExtra("Category", "Hats"); startActivity(intentlist);
                 break;
-            case R.id.pants_catagory: intentlist.putExtra("SearchTerm", "Pants"); startActivity(intentlist);
+            case R.id.pants_catagory: intentlist.putExtra("Category", "Pants"); startActivity(intentlist);
                 break;
-            case R.id.shirts_catagory: intentlist.putExtra("SearchTerm", "Shirts"); startActivity(intentlist);
+            case R.id.shirts_catagory: intentlist.putExtra("Category", "Shirts"); startActivity(intentlist);
                 break;
-             case R.id.shoes_catagory: intentlist.putExtra("SearchTerm", "Shoes"); startActivity(intentlist);
+             case R.id.shoes_catagory: intentlist.putExtra("Category", "Shoes"); startActivity(intentlist);
                 break;
 
         }
