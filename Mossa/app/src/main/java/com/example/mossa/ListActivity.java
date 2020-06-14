@@ -73,6 +73,8 @@ public class ListActivity extends AppCompatActivity {
                     for (int i = 0; i < aClothes.size(); i++) {
                         if (aClothes.get(i).getName().toLowerCase().contains(Query.toLowerCase())) {
                             sortedCatalogue.add(aClothes.get(i));
+                        }else if (aClothes.get(i).getCategory().toLowerCase().contains(Query.toLowerCase())) {
+                            sortedCatalogue.add(aClothes.get(i));
                         }
                     }
                 } else { // else check category
